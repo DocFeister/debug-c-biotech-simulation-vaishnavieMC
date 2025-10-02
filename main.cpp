@@ -16,21 +16,21 @@ int main()
 {
     srand(time(0)); // Seed the random number generator
 
-    int initialBacteria; // Starting population of bacteria (should be initialized to 1000)
+    int initialBacteria = 1000; // Starting population of bacteria (should be initialized to 1000)
     int reproductionRate = 3; // Each bacterium reproduces three times per cycle
     int deathRate = 400; // Bacteria that die per cycle
     int mutationChance = 10; // Chance (in percentage) of mutation occurring
     int mutationEffect = 100; // Additional bacteria produced due to beneficial mutation
     int harmfulMutationEffect = 200; // Bacteria killed due to harmful mutation
-    int cycles = 15 // Number of cycles to simulate
+    int cycles = 15; // Number of cycles to simulate
 
     for (int i = 0; i < cycles; i++)
     {
         // Reproduction phase
-        initialBacteria *= reproductionRate
+        initialBacteria *= reproductionRate;
 
         // Death phase
-        initialBacteria -= deathRate
+        initialBacteria -= deathRate;
 
         // Mutation phase
         int randomValue = rand() % 100;
@@ -46,18 +46,18 @@ int main()
             else
             {
                 initialBacteria -= harmfulMutationEffect;
-                std::cout << "Harmful mutation occurred! " << harmfulMutationEffect << " bacteria killed." << std::end1;
+                std::cout << "Harmful mutation occurred! " << harmfulMutationEffect << " bacteria killed." << std::endl;
             }
         }
 
         // Ensure population doesn't drop below zero
-        if (initialBacteria < 0
+        if (initialBacteria < 0)
         {
             initialBacteria = 0;
         }
 
         // Print the population after each cycle
-        std::cout << "Cycle " << i + 1 << ": " << initialBacteria << " bacteria" << std:endl;
+        std::cout << "Cycle " << i + 1 << ": " << initialBacteria << " bacteria" << std::endl;
     }
 
     // Check if the population has been wiped out
@@ -67,7 +67,8 @@ int main()
     }
     else
     {
-        std::cout << "After " << cycles << " cycles, " << initialBacteria > " bacteria remain." << std::endl; // Intentional operator error
+        std::cout << "After " << cycles << " cycles, " << initialBacteria << " bacteria remain." << std::endl; // Intentional operator error
     }
 
     return 0;
+}
